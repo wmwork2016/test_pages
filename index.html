@@ -27,7 +27,7 @@ $(document).ready(function(){
     var names =namesStr.split(",");
     var res = "";
     for(var i=0;i<names.length;i++){
-        if(text1.indexOf(names[i])>0){
+        if(text1.indexOf(names[i].trim())>0){
             continue;
         }else{
             res += names[i] + ":";
@@ -36,7 +36,7 @@ $(document).ready(function(){
     if(res===""){
         alert("都已接龙")
     }else{
-        alert("未接龙名单："+res);
+        alert(res);
     }
   });
 });
