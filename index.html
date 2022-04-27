@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>W3Cschool</title>
+<head> 
+<meta charset="utf-8"> 
+<title>W3Cschool 在线教程(w3cschool.cn)</title> 
+<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+
 </head>
 <body>
-<form>
-    姓名: <input type="text" name="firstname"><br>
-    电话号码: <input type="text" name="lastname">
-</form>
+
+接龙文本：<br><textarea id="text1" rows="10" cols="30">
+
+</textarea>
+<br>
+姓名清单：<br><textarea id="names" rows="10" cols="30">
+毕琳熙,陈家俊,陈志杰,崔净雅,翟炳坤,翟佳妍,翟泽佳,翟志涛,翟子轩,董涵宇,董志博,杜昀轩,付强,高千惠,高子涵,郭壮,韩新悦,郝龙越,何奕言,霍艺萱,贾函晔,李金洋,李梦菲,李欣,李洋,李泽淳,李志威,李子欢,刘城光,刘佳洁,刘林杰,刘雪依,刘忆雯,刘梓航,刘梓豪,刘紫滢,马箐芳,沈若萱,石丰硕,史浩东,史可敬,史林凯,孙玉然,田梦嫣,佟泽鑫,王佳伟,王凌薇,王梦琪,王湣冬,王润钊,王信博,王一菲,王雨涵,王紫涵,魏林溪,武煜涵,邢胜杰,邢依然,杨峻澎,杨熠彤,岳盈欣,张琳珊,张仕杰,张薇薇,张文彬,张宇轩,张雨,赵瑞泽,赵松涛,赵鑫,赵鑫苗,赵鑫仪,赵梓琛,赵紫悦
+</textarea>
+<br>
+<input id="btn" type="button" value="比对">
+<script>
+$(document).ready(function(){
+  $("#btn").click(function(){
+    //alert($("#text1").val());
+    var text1 = $("#text1").val();
+    var namesStr = $("#names").val();
+    var names =namesStr.split(",");
+    var res = "";
+    for(var i=0;i<names.length;i++){
+        if(text1.indexOf(names[i])>0){
+            continue;
+        }else{
+            res += names[i] + ":";
+        }
+    }
+    if(res===""){
+        alert("都已接龙")
+    }else{
+        alert(res);
+    }
+  });
+});
+</script>
 </body>
+
 </html>
