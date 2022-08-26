@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>接龙清单验证</title> 
+<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+
+</head>
+<body>
+
+接龙文本：<br><textarea id="text1" rows="10" cols="30">
+
+</textarea>
+<br>
+姓名清单：<br><textarea id="names" rows="10" cols="30">
+
+</textarea>
+<br>
+<input id="btn" type="button" value="比对">
+ <br>
+  <!--<a href="classone.html">一年级</a>-->
+<script>
+$(document).ready(function(){
+  $("#btn").click(function(){
+    //alert($("#text1").val());
+    var text1 = $("#text1").val();
+    var namesStr = $("#names").val();
+    var names =namesStr.split(",");
+    var res = "";
+    for(var i=0;i<names.length;i++){
+        if(text1.indexOf(names[i].trim())>0){
+            continue;
+        }else{
+            res += names[i] + ":";
+        }
+    }
+    if(res===""){
+        alert("都已接龙")
+    }else{
+        alert(res);
+    }
+  });
+});
+</script>
+</body>
+
+</html>
